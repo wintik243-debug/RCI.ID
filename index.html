@@ -239,6 +239,7 @@
       font-size: 14px;
       margin-top: 15px;
     }
+    /* Custom Scrollbar */
     ::-webkit-scrollbar {
       width: 7px;
       background: transparent;
@@ -255,6 +256,7 @@
       scrollbar-color: var(--scrollbar-color) transparent;
       scrollbar-width: thin;
     }
+    /* AI Chatbot Widget */
     .ai-robot-btn {
       position: fixed;
       bottom: 32px;
@@ -411,6 +413,7 @@
       .ai-robot-btn { right:10px; }
       .ai-msg-bubble { max-width: 96vw; }
     }
+    /* OwnerCommunity & AdminRoom List */
     .adminroom-section, .ownercommunity-section {
       background: var(--card-color);
       border: 1px solid var(--border-color);
@@ -508,36 +511,389 @@
 </head>
 <body>
   <div class="container">
-    <!-- ... (bagian atas tetap, owner, admin room, dsb) ... -->
-
-    <!-- AI Robot Button -->
-    <button class="ai-robot-btn" id="ai-robot-btn" aria-label="Gemini AI">
-      <span style="display:flex;align-items:center;justify-content:center;">
-        <img src="https://registry.npmmirror.com/@lobehub/icons-static-png/1.65.0/files/light/gemini-color.png"
-             alt="Gemini AI"
-             style="width:38px;height:38px;display:block;border-radius:50%;background:#fff;">
-      </span>
-    </button>
-
-    <!-- AI Chat Modal -->
-    <div class="ai-chat-modal" id="ai-chat-modal">
-      <div class="ai-chat-header">
-        <img src="https://registry.npmmirror.com/@lobehub/icons-static-png/1.65.0/files/light/gemini-color.png"
-             alt="Gemini AI"
-             style="width:28px;height:28px;display:block;border-radius:50%;background:#fff;margin-right:10px;">
-        <span class="ai-chat-header-title">Gemini AI Chat</span>
-        <button class="ai-chat-close" id="ai-chat-close" title="Tutup Chat">×</button>
+    <!-- Settings Bar -->
+    <div class="settings-bar">
+      <div class="theme-switch">
+        <span>🌙</span>
+        <label class="switch">
+          <input type="checkbox" id="theme-toggle">
+          <span class="slider"></span>
+        </label>
+        <span>☀️</span>
       </div>
-      <div class="ai-chat-body" id="ai-chat-body"></div>
-      <form class="ai-chat-footer" id="ai-chat-form" autocomplete="off">
-        <input type="text" class="ai-chat-input" id="ai-chat-input" placeholder="Tulis pertanyaanmu..." required autocomplete="off">
-        <button type="submit" class="ai-chat-btn">Kirim</button>
-      </form>
     </div>
-    <!-- ... (bagian bawah tetap) ... -->
-    <script>
-      // ... (seluruh script tetap seperti versi 11 kamu, tidak perlu diubah) ...
-    </script>
+    <!-- Header -->
+    <div class="header">
+      <div class="profile-container">
+        <img src="https://pps.whatsapp.net/v/t61.24694-24/473399113_1179413630051028_5089219761477454258_n.jpg?ccb=11-4&oh=01_Q5Aa2gHchBGzcUIHVBXGPxX9fYe3rhCJ1p7U75BwaDaqzYMBTw&oe=68DD211E&_nc_sid=5e03e0&_nc_cat=107" class="profile-img" alt="Profile">
+      </div>
+      <h1>Roblox Community Indonesia (RCI) 🇮🇩</h1>
+      <p><em>Sopan • Damai • No Toxic • No Drama</em></p>
+    </div>
+    <!-- Group Info -->
+    <div class="info">
+      <p><strong>🔹 Pembuat:</strong> Satria</p>
+      <div class="creator-row">
+        <img src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-451A063C6A239929CC6A9E5D9ACE0201-Png/150/150/AvatarHeadshot/Webp/noFilter" class="creator-img" alt="Creator">
+        <div class="creator-text">
+          <span>orangyasar_7</span>
+          <span class="rainbow-text">Pemilik Community</span>
+        </div>
+      </div>
+      <p><strong>🔹 Rating:</strong> <span class="rating">★★★★★</span> (5/5)</p>
+      <p><strong>🔹 Admin:</strong> 6</p>
+      <p><strong>🔹 Anggota Grup Utama:</strong> 56</p>
+      <p><strong>🔹 Grup Dibuat Pada:</strong> 20/03/25</p>
+      <p><strong>🔹 Anggota Community:</strong> 68</p>
+    </div>
+    <!-- Rules -->
+    <div class="rules">
+      <h2>📌 Deskripsi &amp; Peraturan Grup</h2>
+      <p>Selamat datang di <strong>RCI</strong> – Komunitas Roblox Indonesia yang ramah, damai, dan penuh kreativitas! Kami berkomitmen untuk menjaga grup tetap <strong>sopan, tidak toxic, dan tidak drama</strong>.</p>
+      <p><strong>🚫 Peraturan Utama:</strong></p>
+      <ul>
+        <li>✔ No SARA, bullying, atau pertengkaran.</li>
+        <li>✔ No spam/link random tanpa izin.</li>
+        <li>✔ Diskusi tetap <strong>friendly &amp; bermanfaat</strong>.</li>
+      </ul>
+    </div>
+    <!-- Main Links -->
+    <h2>🌐 LINK RESMI GRUP</h2>
+    <p>🔗 <a href="https://chat.whatsapp.com/BWiSkjF2QJX43MO0KTCfiI?mode=ac_t" class="link" target="_blank" id="main-link">Join Grup Utama RCI</a></p>
+    <p>🔗 <a href="https://chat.whatsapp.com/KVUFFDesN6xITXLCiAZOU9?mode=ac_t" class="link" target="_blank" id="alt-link">Alternatif Link RCI</a></p>
+    <!-- Community Rooms -->
+    <h2>🎮 COMMUNITY ROOM RCI</h2>
+    <p>Bergabunglah di sub-grup khusus kami:</p>
+    <div class="room">
+      <img src="https://pps.whatsapp.net/v/t61.24694-24/508451372_1065872941769645_6481287945035327736_n.jpg?ccb=11-4&oh=01_Q5Aa2gFWTfWEU8lHzGNOKwzAbxVk4h7HERtWP86HeNIEfJrDww&oe=68DCFA28&_nc_sid=5e03e0&_nc_cat=108" />
+      <div class="room-info">
+        <div class="room-name">👥 Admin Room</div>
+        <a href="https://chat.whatsapp.com/F74SZoCqzJD02A6cPmPCbF?mode=ac_t" class="link" target="_blank" id="admin-link">Join Admin Room</a>
+      </div>
+    </div>
+    <div class="room">
+      <img src="https://pps.whatsapp.net/v/t61.24694-24/491842048_719022874142585_7277601166776573564_n.jpg?ccb=11-4&oh=01_Q5Aa2gGWCMpaHwC1OwZ3g4Av2K_NfbkKYx8vSk402BcymJv_yg&oe=68DD0011&_nc_sid=5e03e0&_nc_cat=108" />
+      <div class="room-info">
+        <div class="room-name">🔨 Developer Room</div>
+        <a href="https://chat.whatsapp.com/HTaU4RUxmMS0qc8qG0R8Na?mode=ac_t" class="link" target="_blank" id="dev-link">Join Dev Room</a>
+      </div>
+    </div>
+    <div class="room">
+      <img src="https://pps.whatsapp.net/v/t61.24694-24/491867848_23885561391052598_1823978030937393799_n.jpg?ccb=11-4&oh=01_Q5Aa2gEZB4tk1uGEh_8pE9qso7qeqmfnlKdJdkT9__tHbYsCXw&oe=68DD1DC1&_nc_sid=5e03e0&_nc_cat=103" />
+      <div class="room-info">
+        <div class="room-name">📞 Telepon Room</div>
+        <a href="https://chat.whatsapp.com/HqyyHksQIIe6WVQex7Ky9n?mode=ac_t" class="link" target="_blank" id="call-link">Join Telepon Room</a>
+      </div>
+    </div>
+    <div class="room">
+      <img src="https://pps.whatsapp.net/v/t61.24694-24/491882627_1073512474824298_1938189724499210790_n.jpg?ccb=11-4&oh=01_Q5Aa2gF67mIXuFGHdsHZrIpAgStXJyfgGOWzIQUPHHnFWRkJLw&oe=68DD2163&_nc_sid=5e03e0&_nc_cat=103" />
+      <div class="room-info">
+        <div class="room-name">🎮 Info Mabar</div>
+        <a href="https://chat.whatsapp.com/JFTuSk8ByRYLgVVvgl05MO" class="link" target="_blank" id="mabar-link">Join Info Mabar</a>
+      </div>
+    </div>
+    <div class="room">
+      <img src="https://pps.whatsapp.net/v/t61.24694-24/491866069_724160660058788_583788110573133467_n.jpg?ccb=11-4&oh=01_Q5Aa2gH6Kgd0Yd_yGBGXBkqMGVLs5L-7ZFQQQkdRDQWfwyuBxg&oe=68DD0B58&_nc_sid=5e03e0&_nc_cat=106" />
+      <div class="room-info">
+        <div class="room-name">🌱 Room GAG</div>
+        <a href="https://chat.whatsapp.com/LC41LpDkhVoDvR4yqMcBmQ" class="link" target="_blank" id="gag-link">Join Room GAG</a>
+      </div>
+    </div>
+    <!-- RoomUpdate PALING BAWAH -->
+    <div class="room">
+      <img src="https://pps.whatsapp.net/v/t61.24694-24/491871499_746335421440430_393382152921872579_n.jpg?ccb=11-4&oh=01_Q5Aa2gHMUVdNoobCuUuxuRF2GE0dkO6bONTg55FNFQ368uMHNw&oe=68DCEA0B&_nc_sid=5e03e0&_nc_cat=109" />
+      <div class="room-info">
+        <div class="room-name">🔔 RoomUpdate</div>
+        <a href="https://chat.whatsapp.com/Ju637V4KjjV7cxDqB3egRl?mode=ems_copy_t" class="link" target="_blank" id="update-link">Join RoomUpdate</a>
+         </a>
+      </div>
+    </div>
+     <div class="room">
+      <img src="https://pps.whatsapp.net/v/t61.24694-24/518957402_1274272784397994_7145235395873245496_n.jpg?ccb=11-4&oh=01_Q5Aa2gF-sPAX9haTayYyMjwuIU9tuZVf5t2DrWgTJ9jquVMH_Q&oe=68DCFE19&_nc_sid=5e03e0&_nc_cat=108" />
+      <div class="room-info">
+        <div class="room-name">🔁 RoomTradeGAG</div>
+        <a href="https://chat.whatsapp.com/G9dkNfXbHV73rf2oq3zdv2?mode=ems_copy_t" class="link" target="_blank" id="update-link">Join RoomTradeGAG</a>
+      </div>
+    </div>
+    <!-- Comment Section -->
+    <div class="comment-section">
+      <button class="comment-toggle" id="comment-toggle">Komentar (1)</button>
+      <div class="comment-container" id="comment-container">
+        <div class="comment">
+          <div class="comment-header">
+            <img src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-C9B162D10891D6BC330EBBBD0618E728-Png/150/150/AvatarHeadshot/Webp/noFilter" class="creator-img" alt="Commenter">
+            <span class="comment-author">Lahiruupb</span>
+            <span class="comment-badge rainbow-text">Admin</span>
+          </div>
+          <div class="comment-content">
+            Jangan Lupa Share Guys😏
+          </div>
+          <div class="comment-reactions">
+            <div class="comment-reaction">🔥 69</div>
+            <div class="comment-reaction">🗿 54</div>
+            <div class="comment-reaction">😁 52</div>
+            <div class="comment-reaction">😲 45</div>
+            <div class="comment-reaction">👀 32</div>
+            <div class="comment-reaction">🫡 28</div>
+          </div>
+        </div>
+        <div class="comment-disabled">
+          Admin Menonaktifkan Komentar
+        </div>
+      </div>
+    </div>
+    <!-- OwnerCommunity Section -->
+    <div class="ownercommunity-section">
+      <div class="ownercommunity-title">Daftar OwnerCommunity👑</div>
+      <div style="margin-bottom:10px;opacity:0.9">
+        Ini Adalah Daftar Owner Community<br>
+        Dia Adalah Pemilik Communty Sejati Kita!
+      </div>
+      <div class="owner-list">
+        <div class="owner-card">
+          <img src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-451A063C6A239929CC6A9E5D9ACE0201-Png/150/150/AvatarHeadshot/Webp/noFilter" class="owner-avatar" alt="RCI_SATRIA">
+          <div class="owner-info">
+            <div class="owner-name">
+              <a class="link" href="https://www.roblox.com/id/users/5162833512/profile?friendshipSourceType=PlayerSearch" target="_blank">RCI_SATRIA</a>
+              <span class="owner-rainbow">Pemilik Community</span>
+            </div>
+            <div class="owner-username">@orangyasar_7</div>
+            <a class="owner-link" href="https://www.roblox.com/id/users/5162833512/profile?friendshipSourceType=PlayerSearch" target="_blank">Lihat Profil</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- AdminRoom Section -->
+    <div class="adminroom-section">
+      <div class="adminroom-title">Daftar AdminRoom 👥</div>
+      <div style="margin-bottom:10px;opacity:0.9">Disini Adalah Daftar <br> Admin Room
+      </div>
+      <div class="admin-list">
+        <div class="admin-card">
+          <img src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-A165341F885B6B982CF43A281667B6DF-Png/150/150/AvatarHeadshot/Webp/noFilter" class="admin-avatar" alt="RCI_12y">
+          <div class="admin-info">
+            <div class="admin-name"><a class="link" href="https://www.roblox.com/id/users/3184197101/profile?friendshipSourceType=PlayerSearch" target="_blank">RCI_12y</a></div>
+            <div class="admin-username">@fandigaming123F</div>
+            <a class="admin-link" href="https://www.roblox.com/id/users/3184197101/profile?friendshipSourceType=PlayerSearch" target="_blank">Lihat Profil</a>
+          </div>
+        </div>
+        <div class="admin-card">
+          <img src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-0D016B11B194397E65B53ABDF8CBA1B9-Png/150/150/AvatarHeadshot/Webp/noFilter" class="admin-avatar" alt="RCI_ZIA">
+          <div class="admin-info">
+            <div class="admin-name"><a class="link" href="https://www.roblox.com/id/users/8053157130/profile?friendshipSourceType=PlayerSearch" target="_blank">RCI_ZIA</a></div>
+            <div class="admin-username">@zi_sigma8</div>
+            <a class="admin-link" href="https://www.roblox.com/id/users/8053157130/profile?friendshipSourceType=PlayerSearch" target="_blank">Lihat Profil</a>
+          </div>
+        </div>
+        <div class="admin-card">
+          <img src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-AABCAEC18AD0EC5644292962D57AB3F7-Png/150/150/AvatarHeadshot/Webp/noFilter" class="admin-avatar" alt="nobody">
+          <div class="admin-info">
+            <div class="admin-name"><a class="link" href="https://www.roblox.com/id/users/8040183011/profile?friendshipSourceType=PlayerSearch" target="_blank">nobody</a></div>
+            <div class="admin-username">@ryuzee04</div>
+            <a class="admin-link" href="https://www.roblox.com/id/users/8040183011/profile?friendshipSourceType=PlayerSearch" target="_blank">Lihat Profil</a>
+          </div>
+        </div>
+        <div class="admin-card">
+          <img src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-8632BDA841DD3D0D7A74FA10B876FE63-Png/150/150/AvatarHeadshot/Webp/noFilter" class="admin-avatar" alt="alone">
+          <div class="admin-info">
+            <div class="admin-name"><a class="link" href="https://www.roblox.com/id/users/8508548233/profile?friendshipSourceType=PlayerSearch" target="_blank">alone</a></div>
+            <div class="admin-username">@melaa_2110</div>
+            <a class="admin-link" href="https://www.roblox.com/id/users/8508548233/profile?friendshipSourceType=PlayerSearch" target="_blank">Lihat Profil</a>
+          </div>
+        </div>
+        <div class="admin-card">
+          <img src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-ECBA5B1DAF34A83A9224DA5F7FECF609-Png/150/150/AvatarHeadshot/Webp/noFilter" class="admin-avatar" alt="RCI_Milz">
+          <div class="admin-info">
+            <div class="admin-name"><a class="link" href="https://www.roblox.com/id/users/9115873518/profile?friendshipSourceType=PlayerSearch" target="_blank">RCI_Milz</a></div>
+            <div class="admin-username">@MilzXnakai</div>
+            <a class="admin-link" href="https://www.roblox.com/id/users/9115873518/profile?friendshipSourceType=PlayerSearch" target="_blank">Lihat Profil</a>
+          </div>
+        </div>
+        <div class="admin-card">
+          <img src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-C9B162D10891D6BC330EBBBD0618E728-Png/150/150/AvatarHeadshot/Webp/noFilter" class="admin-avatar" alt="RCI_BOTaK">
+          <div class="admin-info">
+            <div class="admin-name"><a class="link" href="https://www.roblox.com/id/users/3979660704/profile?friendshipSourceType=PlayerSearch" target="_blank">RCI_BOTaK</a></div>
+            <div class="admin-username">@Lahiruupb</div>
+            <a class="admin-link" href="https://www.roblox.com/id/users/3979660704/profile?friendshipSourceType=PlayerSearch" target="_blank">Lihat Profil</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Creator Info -->
+    <div class="creator">
+      <img src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-C9B162D10891D6BC330EBBBD0618E728-Png/150/150/AvatarHeadshot/Webp/noFilter" class="creator-img" alt="Creator">
+      <div class="creator-info">
+        <div class="creator-name">Lahiruupb</div>
+        <div class="creator-title">
+          Pembuat Halaman - <span class="rainbow-text">Admin Community</span>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+      <p><small>Note: Jika link expired, hubungi admin. Laporkan anggota yang melanggar.</small></p>
+      <p style="margin-top:14px;color:#bb86fc;font-size:13px;"><b>Dibuat/Update: 2025-09-21</b></p>
+    </div>
   </div>
+  <!-- AI Robot Button -->
+  <button class="ai-robot-btn" id="ai-robot-btn" aria-label="Gemini AI"><svg height="1em" style="flex:none;line-height:1" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><title>Gemini</title><path d="M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z" fill="#3186FF"></path><path d="M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z" fill="url(#lobe-icons-gemini-fill-0)"></path><path d="M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z" fill="url(#lobe-icons-gemini-fill-1)"></path><path d="M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z" fill="url(#lobe-icons-gemini-fill-2)"></path><defs><linearGradient gradientUnits="userSpaceOnUse" id="lobe-icons-gemini-fill-0" x1="7" x2="11" y1="15.5" y2="12"><stop stop-color="#08B962"></stop><stop offset="1" stop-color="#08B962" stop-opacity="0"></stop></linearGradient><linearGradient gradientUnits="userSpaceOnUse" id="lobe-icons-gemini-fill-1" x1="8" x2="11.5" y1="5.5" y2="11"><stop stop-color="#F94543"></stop><stop offset="1" stop-color="#F94543" stop-opacity="0"></stop></linearGradient><linearGradient gradientUnits="userSpaceOnUse" id="lobe-icons-gemini-fill-2" x1="3.5" x2="17.5" y1="13.5" y2="12"><stop stop-color="#FABC12"></stop><stop offset=".46" stop-color="#FABC12" stop-opacity="0"></stop></linearGradient></defs></svg>
+    
+  </button>
+  <!-- AI Chat Modal -->
+  <div class="ai-chat-modal" id="ai-chat-modal">
+    <div class="ai-chat-header"><svg height="1em" style="flex:none;line-height:1" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><title>Gemini</title><path d="M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z" fill="#3186FF"></path><path d="M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z" fill="url(#lobe-icons-gemini-fill-0)"></path><path d="M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z" fill="url(#lobe-icons-gemini-fill-1)"></path><path d="M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z" fill="url(#lobe-icons-gemini-fill-2)"></path><defs><linearGradient gradientUnits="userSpaceOnUse" id="lobe-icons-gemini-fill-0" x1="7" x2="11" y1="15.5" y2="12"><stop stop-color="#08B962"></stop><stop offset="1" stop-color="#08B962" stop-opacity="0"></stop></linearGradient><linearGradient gradientUnits="userSpaceOnUse" id="lobe-icons-gemini-fill-1" x1="8" x2="11.5" y1="5.5" y2="11"><stop stop-color="#F94543"></stop><stop offset="1" stop-color="#F94543" stop-opacity="0"></stop></linearGradient><linearGradient gradientUnits="userSpaceOnUse" id="lobe-icons-gemini-fill-2" x1="3.5" x2="17.5" y1="13.5" y2="12"><stop stop-color="#FABC12"></stop><stop offset=".46" stop-color="#FABC12" stop-opacity="0"></stop></linearGradient></defs></svg>
+      <span class="ai-chat-header-title">Gemini AI</span>
+      <button class="ai-chat-close" id="ai-chat-close" title="Tutup Chat">×</button>
+    </div>
+    <div class="ai-chat-body" id="ai-chat-body"></div>
+    <form class="ai-chat-footer" id="ai-chat-form" autocomplete="off">
+      <input type="text" class="ai-chat-input" id="ai-chat-input" placeholder="Tulis pertanyaanmu..." required autocomplete="off">
+      <button type="submit" class="ai-chat-btn">Kirim</button>
+    </form>
+  </div>
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme') ||
+          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    if (currentTheme === 'light') themeToggle.checked = true;
+    themeToggle.addEventListener('change', function() {
+      let theme = this.checked ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    });
+
+    // Comment toggle
+    const commentToggle = document.getElementById('comment-toggle');
+    const commentContainer = document.getElementById('comment-container');
+    commentToggle.addEventListener('click', function() {
+      if (commentContainer.style.display === 'none' || !commentContainer.style.display) {
+        commentContainer.style.display = 'block';
+        commentToggle.textContent = 'Sembunyikan Komentar';
+      } else {
+        commentContainer.style.display = 'none';
+        commentToggle.textContent = 'Komentar (1)';
+      }
+    });
+
+    // Disable right-click on images
+    document.addEventListener('contextmenu', function(e) {
+      if (e.target.tagName === 'IMG') e.preventDefault();
+    });
+    // Prevent image dragging
+    document.addEventListener('dragstart', function(e) {
+      if (e.target.tagName === 'IMG') e.preventDefault();
+    });
+
+    // Gemini AI Chat Widget
+    const aiRobotBtn = document.getElementById('ai-robot-btn');
+    const aiChatModal = document.getElementById('ai-chat-modal');
+    const aiChatClose = document.getElementById('ai-chat-close');
+    const aiChatForm = document.getElementById('ai-chat-form');
+    const aiChatInput = document.getElementById('ai-chat-input');
+    const aiChatBody = document.getElementById('ai-chat-body');
+
+    // LocalStorage persistent chat
+    const AI_CHAT_KEY = "rci_gemini_chat_history";
+    let aiChatHistory = [];
+    function loadChatHistory() {
+      try {
+        aiChatHistory = JSON.parse(localStorage.getItem(AI_CHAT_KEY)) || [];
+      } catch { aiChatHistory = []; }
+    }
+    function saveChatHistory() {
+      localStorage.setItem(AI_CHAT_KEY, JSON.stringify(aiChatHistory));
+    }
+    function renderChatHistory() {
+      aiChatBody.innerHTML = "";
+      aiChatHistory.forEach(msg => {
+        const row = document.createElement("div");
+        row.className = "ai-msg-row";
+        const bubble = document.createElement("div");
+        bubble.className = "ai-msg-bubble " + (msg.role === 'user' ? 'ai-msg-user' : 'ai-msg-bot');
+        bubble.textContent = msg.text;
+        row.appendChild(bubble);
+        aiChatBody.appendChild(row);
+      });
+      aiChatBody.scrollTop = aiChatBody.scrollHeight;
+    }
+    function addMessage(role, text) {
+      aiChatHistory.push({ role, text });
+      saveChatHistory();
+      renderChatHistory();
+    }
+    // Prevent double open
+    let aiChatOpen = false;
+    aiRobotBtn.onclick = () => {
+      if (!aiChatOpen) {
+        aiChatModal.style.display = "flex";
+        renderChatHistory();
+        setTimeout(() => aiChatInput.focus(), 100);
+        aiChatOpen = true;
+        setTimeout(() => {
+          aiChatInput.scrollIntoView({behavior:"smooth", block:"end"});
+        }, 300);
+      }
+    };
+    aiChatClose.onclick = () => {
+      aiChatModal.style.display = "none";
+      aiChatOpen = false;
+    };
+    // Close modal on click outside
+    window.addEventListener('click', function(e){
+      if (aiChatOpen && aiChatModal.style.display === "flex" && !aiChatModal.contains(e.target) && e.target !== aiRobotBtn) {
+        aiChatModal.style.display = "none";
+        aiChatOpen = false;
+      }
+    });
+    // Chat logic (real time, persistent)
+    aiChatForm.onsubmit = async function(e) {
+      e.preventDefault();
+      const text = aiChatInput.value.trim();
+      if (!text) return;
+      addMessage('user', text);
+      aiChatInput.value = "";
+      const sendBtn = aiChatForm.querySelector('button[type="submit"]');
+      sendBtn.disabled = true;
+      // Show "Menjawab..." bubble
+      addMessage('bot', "Menjawab...");
+      aiChatBody.scrollTop = aiChatBody.scrollHeight;
+      try {
+        const res = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyBg5OKM4YmbwWsrJhp7dP_dxqUkV1Ktock", {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify({
+            contents: [{parts: [{text}]}]
+          })
+        });
+        const data = await res.json();
+        aiChatHistory.pop();
+        if (data && data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts[0].text) {
+          addMessage('bot', data.candidates[0].content.parts[0].text);
+        } else {
+          addMessage('bot', "Jawaban tidak tersedia atau terjadi error.");
+        }
+      } catch (err) {
+        aiChatHistory.pop();
+        addMessage('bot', "Gagal menghubungi AI Gemini.");
+      }
+      sendBtn.disabled = false;
+      aiChatBody.scrollTop = aiChatBody.scrollHeight;
+    };
+    loadChatHistory();
+    function keyboardFix() {
+      if (window.visualViewport) {
+        window.visualViewport.addEventListener('resize', ()=>{
+          if (aiChatModal.style.display === "flex") {
+            setTimeout(()=>{
+              aiChatInput.scrollIntoView({behavior:"smooth", block:"end"});
+            }, 80);
+          }
+        });
+      }
+    }
+    keyboardFix();
+  </script>
 </body>
 </html>
